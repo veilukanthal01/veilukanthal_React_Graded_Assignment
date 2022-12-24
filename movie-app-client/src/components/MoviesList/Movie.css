@@ -1,0 +1,75 @@
+/* LM application colors, 
+all are already in site.variables */
+
+
+@color-medium-gray: #7B7B7B;
+@color-dark-gray: #2c2c2c;
+@color-white: #ffffff;
+@color-black: #000000;
+
+/* adjustments for any type of message,
+should be overriden in Semantic */
+.ui.message {
+  box-shadow: none !important;
+  color: #2c2c2c !important;
+}
+
+/* color adjustments specifically for the positive message,
+should be overriden in Semantic */
+.ui.positive.message {
+  background-color: mix(#ffffff, #97cb50, 70%);
+}
+
+
+.close {
+  color: fadeout(#2c2c2c, 60%);
+
+}
+
+
+.fa-check-circle {
+  font-size: 14px;
+  position: relative;
+  bottom: 1px;
+  margin-right: 4px;
+  opacity: 0.75;
+}
+
+/* Ignore this, this is just to make CodePen look nice :) */
+.msgs {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  margin-top: 128px;
+}
+
+.msg-container {
+  position: relative;
+  height: 200px;
+}
+
+button {
+  background: none;
+  border: none;
+  background-color: mix(#ffffff, #7B7B7B, 90%);
+  color: #2c2c2c;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+span{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  width: 150px;
+  font-size:small;
+}
