@@ -4,6 +4,8 @@ import IMovie from "../../models/IMovie";
 import { removeMoviesFromFavourites } from "../../services/Movie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 const baseurl = process.env.REACT_APP_BASE_URL;
 
@@ -11,7 +13,7 @@ interface props {
   movie: IMovie;
 }
 let count = 0;
-
+toast.configure();
 const RemoveFromFavouritesList = ({ movie }: props) => {
   const removeFromFavourites = (movieTitle: string) => {
     try {
@@ -22,14 +24,20 @@ const RemoveFromFavouritesList = ({ movie }: props) => {
       const index = moviesList.findIndex(
         (item: { title: string }) => item.title === movieTitle
       );
-      if (index > -1){
+      if (index > -1) {
         moviesList.splice(index, 1);
       }
       localStorage.setItem("movies", JSON.stringify(moviesList));
+      toast.success("Successfully removed from favourites", {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: false,
+      });
+     
       window.location.reload();
     } catch (error) {
       console.log(error);
     }
+   
   };
 
   return (

@@ -1,9 +1,7 @@
-import Home from "./Home";
 import Menu from "./Menu";
 import { Container } from "react-bootstrap";
 import { Route, Switch } from "react-router-dom";
 import UpcomingMovies from "./MoviesList/MovieList";
-import About from "./Abount/Abount";
 import Favourites from "./Favourites/Favourites";
 import MoviesInTheaters from "./MoviesList/MoviesInTheaters";
 import TopRatedMovies from "./MoviesList/TopRatedMovies";

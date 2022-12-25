@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Alert, Col, Row } from "react-bootstrap";
 import IMovie from "../../models/IMovie";
-import { getFavourites } from "../../services/Movie";
 import RemoveFromFavouritesList from "../MoviesList/RemoveFavourite";
 
 const Favourites = () => {
@@ -22,8 +21,8 @@ const Favourites = () => {
   return (
     <>
       <div className="results-wrap" style={{ width: "1500px" }}>
-        {movies == null && <div>No data Found</div>}
-        {movies != null && movies.length !== 0 && (
+        {movies == null || movies.length == 0 && <div style={{ marginTop: "200px", marginLeft: "500px" }}>No data Found</div>}
+        {movies != null && movies.length > 0 && (
           <Row xs={2} md={3} lg={6}>
             {movies.map((movie) => (
               <Col key={movie.title} className="d-flex my-3">

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert} from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 import IMovie from "../../models/IMovie";
 import { getMoviesInTheaters } from "../../services/Movie";
 import SearchMovie from "../SearchBar/Search";

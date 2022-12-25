@@ -1,6 +1,6 @@
 import React from "react";
 import IMovie from "../../models/IMovie";
-import {  Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import MovieListItem from "../MoviesList/MovieListItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -17,12 +17,15 @@ function SearchMovie(props: { movies: IMovie[] }) {
   };
 
   const filteredProducts = props.movies.filter((movie) => {
-    return movie.title.includes(searchVal);
+    return movie.title.toLowerCase().includes(searchVal.toLowerCase());
   });
 
   return (
     <div>
-      <div className="input-group" style={{ marginLeft:"1200px", float:"left"}}>
+      <div
+        className="input-group"
+        style={{ marginLeft: "1200px", float: "left" }}
+      >
         <input
           onChange={(e) => handleInput(e)}
           value={searchVal}
@@ -31,7 +34,7 @@ function SearchMovie(props: { movies: IMovie[] }) {
           id="product-search"
           placeholder="Search Movies"
         />
-        <div className="input-group-append" style={{ backgroundColor: "blue"}}>
+        <div className="input-group-append" style={{ backgroundColor: "blue" }}>
           <button
             className="btn btn-secondary"
             type="button"
@@ -46,6 +49,7 @@ function SearchMovie(props: { movies: IMovie[] }) {
         Movies
       </label>
       <div className="results-wrap" style={{ width: "1500px" }}>
+        {filteredProducts.length === 0 && <div style={{ marginTop: "200px", marginLeft: "500px" }}>No data Found</div>}
         {filteredProducts.length !== 0 && (
           <Row xs={2} md={3} lg={6}>
             {filteredProducts.map((movie) => (

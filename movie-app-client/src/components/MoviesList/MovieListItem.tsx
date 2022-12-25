@@ -24,16 +24,17 @@ const MovieListItem = ({ movie }: props) => {
           (item: { title: string }) => item.title === movie.title
         );
         if (index > -1) {
-          toast.error("Alreday Added", {
+          toast.error("Alreday added to favourite", {
             position: toast.POSITION.TOP_RIGHT,
-            autoClose: false,
+            autoClose: 1000,
+            hideProgressBar: true
           });
           return;
         } else {
           moviesList.push(movie);
           localStorage.setItem("movies", JSON.stringify(moviesList));
         }
-      } else if (moviesList == null) {
+      } else if (moviesList == null || moviesList.length == 0) {
         moviesList = [];
         moviesList.push(movie);
         localStorage.setItem("movies", JSON.stringify(moviesList));
@@ -41,12 +42,14 @@ const MovieListItem = ({ movie }: props) => {
 
       toast.success("Successfully added to favourites", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: false,
+        autoClose: 1000,
+        hideProgressBar: true
       });
     } catch (error) {
       toast.error("Alreday Added", {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: false,
+        autoClose: 1000,
+        hideProgressBar: true
       });
     }
   };
